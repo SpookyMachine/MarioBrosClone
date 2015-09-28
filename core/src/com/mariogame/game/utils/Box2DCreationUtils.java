@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.mariogame.game.Entities.Brick;
 import com.mariogame.game.MarioBros;
 import com.mariogame.game.enums.TiledMapLayer;
 
@@ -16,8 +17,10 @@ public class Box2DCreationUtils {
     private static Box2DCreationUtils ourInstance = new Box2DCreationUtils();
 
     //Box2D Stuff
+    private Body body;
     private BodyDef bdef = new BodyDef();
     private FixtureDef fdef = new FixtureDef();
+
 
     public static Box2DCreationUtils getInstance() {
         return ourInstance;
@@ -50,17 +53,33 @@ public class Box2DCreationUtils {
         }
     }
 
-    /**
-     * Adds box2d objects to world from @layerName
-     *
-     * @param world
-     * @param map
-     * @param layerName
-     *
-     */
-    public void generateLayer(World world, TiledMap map, TiledMapLayer layerName){
-        generateLayer(world, map, layerName, "");
+
+
+    public void generateBrickLayer(World world, TiledMap map){
+        for (MapObject object : map.getLayers().get("Bricks").getObjects())
+            if (object instanceof RectangleMapObject) {
+                Shape shape;
+                shape = getRectangle((RectangleMapObject) object);
+
+                bdef.type = BodyDef.BodyType.StaticBody;
+
+                fdef.friction = 0;
+                fdef.isSensor = false;
+                fdef.shape = shape;
+
+//                world.createBody(bdef).createFixture(shape, 1).setUserData("brick");
+
+                body = world.createBody(bdef);
+
+                body.createFixture(fdef).setUserData("brick");
+
+
+
+//                new Brick(body);
+
+            }
     }
+
 
     //Retrieving polygon shape from map object
     private PolygonShape getRectangle(RectangleMapObject rectangleObject) {

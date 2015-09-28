@@ -137,8 +137,12 @@ public class Mario extends Sprite {
         body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
-        PolygonShape shape = new PolygonShape();
-        shape.setAsBox((littleMario.getRegionWidth() / 2) / MarioBros.PPM, littleMario.getRegionHeight() / 2  / MarioBros.PPM );
+        CircleShape shape = new CircleShape();
+        shape.setRadius(6 / MarioBros.PPM);
+        fdef.filter.categoryBits = MarioBros.MARIO_BIT;
+        fdef.filter.maskBits = MarioBros.DEFAULT_BIT
+                | MarioBros.COIN_BIT
+                | MarioBros.BRICK_BIT;
 
         fdef.shape = shape;
         body.createFixture(fdef).setUserData("mario");

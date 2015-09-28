@@ -2,6 +2,7 @@ package com.mariogame.game.listeners;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.*;
+import com.mariogame.game.Entities.Brick;
 import com.mariogame.game.Entities.Mario;
 
 /**
@@ -17,8 +18,8 @@ public class WorldContactListener implements ContactListener {
         if(fixA.getUserData() == "head" || fixB.getUserData() == "brick"){
             Gdx.app.log("fixA", fixA.getUserData().toString() );
             Gdx.app.log("fixB", fixB.getUserData().toString() );
-
         }
+
 
     }
 

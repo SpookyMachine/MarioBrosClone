@@ -17,6 +17,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mariogame.game.Entities.Brick;
 import com.mariogame.game.Entities.Mario;
 import com.mariogame.game.MarioBros;
 import com.mariogame.game.enums.TiledMapLayer;
@@ -70,13 +71,12 @@ public class PlayScreen implements Screen {
 
         Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.COINS, "coins");
         Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.GROUND, "ground");
-        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.GOOMBAS, "goomba");
+        Box2DCreationUtils.getInstance().generateLayer(world, map, TiledMapLayer.GOOMBAS, "goomba");
         Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.PIPES, "pipe");
-        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.BRICKS, "brick");
+        Box2DCreationUtils.getInstance().generateBrickLayer(world, map); // generate Bricks
+
 
         world.setContactListener(new WorldContactListener());
-
-
     }
 
 
@@ -164,5 +164,13 @@ public class PlayScreen implements Screen {
 
     public TextureAtlas getAtlas() {
         return atlas;
+    }
+
+    public World getWorld() {
+        return world;
+    }
+
+    public TiledMap getMap() {
+        return map;
     }
 }
