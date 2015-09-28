@@ -59,7 +59,7 @@ public class Box2DCreationUtils {
      *
      */
     public void generateLayer(World world, TiledMap map, TiledMapLayer layerName){
-        generateLayer(world, map, layerName, null);
+        generateLayer(world, map, layerName, "");
     }
 
     //Retrieving polygon shape from map object

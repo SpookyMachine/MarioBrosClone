@@ -16,7 +16,7 @@ public class WorldContactListener implements ContactListener {
 
         if(fixA.getUserData() == "head" || fixB.getUserData() == "brick"){
             Gdx.app.log("fixA", fixA.getUserData().toString() );
-            Gdx.app.log("fixb", fixB.getUserData().toString() );
+            Gdx.app.log("fixB", fixB.getUserData().toString() );
 
         }
 

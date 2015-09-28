@@ -68,10 +68,10 @@ public class PlayScreen implements Screen {
 
         player = new Mario(world, atlas);
 
-        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.COINS);
-        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.GROUND);
-        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.GOOMBAS);
-        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.PIPES);
+        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.COINS, "coins");
+        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.GROUND, "ground");
+        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.GOOMBAS, "goomba");
+        Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.PIPES, "pipe");
         Box2DCreationUtils.getInstance().generateLayer(world,map, TiledMapLayer.BRICKS, "brick");
 
         world.setContactListener(new WorldContactListener());

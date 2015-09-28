@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g3d.particles.values.RectangleSpawnShapeValue;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
@@ -42,17 +44,21 @@ public class Mario extends Sprite {
         stateTimer = 0f;
         turnedRight = true;
 
-        //Defining Box2D object
-        defineMario();
-
         //Defining texture regions and Animations
         loadLittleMarioTexture();
         loadLittleMarioRunningAnimation();
         loadLittleMarioJumpAnimation();
 
-
         //byDefaultSetMarioLitlle >.>
         setRegion(littleMario);
+
+        //Defining Box2D object
+        defineMario();
+
+
+
+
+
 
     }
 
@@ -131,11 +137,11 @@ public class Mario extends Sprite {
         body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
-        CircleShape shape = new CircleShape();
-        shape.setRadius(6 / MarioBros.PPM);
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox((littleMario.getRegionWidth() / 2) / MarioBros.PPM, littleMario.getRegionHeight() / 2  / MarioBros.PPM );
 
         fdef.shape = shape;
-        body.createFixture(fdef);
+        body.createFixture(fdef).setUserData("mario");
 
         EdgeShape edge = new EdgeShape();
         edge.set(new Vector2(-2 / MarioBros.PPM, 6/ MarioBros.PPM), new Vector2(2 / MarioBros.PPM, 6/ MarioBros.PPM));
