@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mariogame.game.Entities.Brick;
+import com.mariogame.game.Entities.Coin;
 import com.mariogame.game.MarioBros;
 import com.mariogame.game.enums.TiledMapLayer;
 
@@ -53,6 +54,10 @@ public class Box2DCreationUtils {
         }
     }
 
+    public void generateAllObjectLayers(World world, TiledMap map){
+        generateBrickLayer(world, map);
+        generateCoinLayer(world, map);
+    }
 
 
     public void generateBrickLayer(World world, TiledMap map){
@@ -67,15 +72,32 @@ public class Box2DCreationUtils {
                 fdef.isSensor = false;
                 fdef.shape = shape;
 
-//                world.createBody(bdef).createFixture(shape, 1).setUserData("brick");
+                body = world.createBody(bdef);
+
+                body.createFixture(fdef).setUserData(this);
+
+                new Brick(body,map);
+
+            }
+    }
+
+    public void generateCoinLayer(World world, TiledMap map){
+        for (MapObject object : map.getLayers().get("Coins").getObjects())
+            if (object instanceof RectangleMapObject) {
+                Shape shape;
+                shape = getRectangle((RectangleMapObject) object);
+
+                bdef.type = BodyDef.BodyType.StaticBody;
+
+                fdef.friction = 0;
+                fdef.isSensor = false;
+                fdef.shape = shape;
 
                 body = world.createBody(bdef);
 
-                body.createFixture(fdef).setUserData("brick");
+                body.createFixture(fdef).setUserData(this);
 
-
-
-//                new Brick(body);
+                new Coin(body);
 
             }
     }

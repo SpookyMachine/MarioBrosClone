@@ -19,11 +19,18 @@ public class Brick extends TileObject {
         setCategoryFilter(MarioBros.BRICK_BIT);
     }
 
+    public Brick(Body body, TiledMap map) {
+        super(body);
+        this.map = map;
+        fixture.setUserData(this);
+        setCategoryFilter(MarioBros.BRICK_BIT);
+    }
+
     @Override
     public void onHit() {
         Gdx.app.log("Brick", "Brick got hit");
         setCategoryFilter(MarioBros.DESTROYED_BIT);
+        getCell().setTile(null);
     }
-
 
 }

@@ -24,14 +24,14 @@ public abstract class TileObject {
 
     protected Fixture fixture;
 
-    public TileObject(World world, TiledMap map){
-
-    }
-
-    public TileObject() {
+    public TileObject(Body body, TiledMap map) {
+        fixture = body.getFixtureList().get(0);
+        this.map  = map;
+        this.body = body;
     }
 
     public TileObject(Body body) {
+        this.body = body;
         fixture = body.getFixtureList().get(0);
     }
 
@@ -44,10 +44,9 @@ public abstract class TileObject {
     }
 
     public TiledMapTileLayer.Cell getCell(){
-        TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get(1);
+        TiledMapTileLayer layer = (TiledMapTileLayer) map.getLayers().get("Graphic");
         return layer.getCell((int)(body.getPosition().x * MarioBros.PPM / 16),
                 (int)(body.getPosition().y * MarioBros.PPM / 16));
     }
-
 
 }

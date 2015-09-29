@@ -55,11 +55,6 @@ public class Mario extends Sprite {
         //Defining Box2D object
         defineMario();
 
-
-
-
-
-
     }
 
     private void loadLittleMarioJumpAnimation() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="167">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="13" tilewidth="16" tileheight="16" nextobjectid="171">
  <tileset firstgid="1" name="tileset_gutter" tilewidth="16" tileheight="16" spacing="2" margin="1" tilecount="924">
   <image source="tileset_gutter.png" width="594" height="504"/>
   <tile id="0">
@@ -116,7 +116,7 @@
    eJzt1aENACAMRUFgf8U2zFaDx0ICoSfO/4qXjlbKAAAAAIBPxAMbACCTU7+31/u3QCbRzvSrXfhHLG7vAfboGACAV00tuemL
   </data>
  </layer>
- <layer name="Graphic Layer" width="240" height="13">
+ <layer name="Graphic" width="240" height="13">
   <data encoding="base64" compression="zlib">
    eJztmM9OwzAMxrPegG0IOO2aI7AhAQNpb8aDAGdeAuiz7YKnzZpn7Pxp0rWrIvETXZo4n518zbq6MqbesSbXhULhtFgLaO0S78AH8JmgAWOkxkmZO3XeU8+h6N8yGx039xRSfIt8Az/Ab0BdtdpiDFectvaDT/8Qcij6w1mN4vV3BfUt/RzjZTrWtTY590bqfmga71RzKPrDQf/m3kNtwD3I21w+rqv//p2Z7nM6FvDnROubUqPYsZoevDfbId0fGtZs8fVbnfD35ybQWF3nUyhIWDNc//LPvt+zaqFNOscLhT5gzXD9WygMGWvy+Xds9nSdl0bleadD+HtYRd6j2nyfOoPangMmIH5M35j6pOanja2UuLTW2nVI/Jg5EWvkax/WNB/LtTWtN2rg+MZp/p3A2ClwmbifcF+mxOgbm+/eXwG53cK9O+LJ64i+fcWVQ5dYwYNWqCXXbwWvaGPb1i7h0y/5d3PmzgkpZzDuy67XN2bfhT5zfLlRT17B/0fgRunv828ffOPLIecaxGAdHqRtXL9VvCK1Uf2pZxIdzzVomrT6S/6d7s7ehdlfx67BBfQbA5Mj+3cJc70QXkfufbck/bAt9JlD+y3ZnGtyH+d/cujAvjn056gdjxeSQ841CIXvd5yTt3P9Lq/wdq6f749Y/The0qBpovqf2TNI8+8D8e+bZw0499BnDiwy+HdzLBUOyVWbUuf8NS0c8gdoPYq+
   </data>
@@ -223,7 +223,7 @@
   <object id="163" x="192" y="128" width="16" height="16"/>
   <object id="164" x="208" y="128" width="16" height="16"/>
   <object id="165" x="224" y="128" width="16" height="16"/>
-  <object id="166" x="240" y="128" width="16" height="16"/>
+  <object id="169" x="240" y="128" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Goombas">
   <object id="139" x="512" y="176" width="16" height="16"/>
